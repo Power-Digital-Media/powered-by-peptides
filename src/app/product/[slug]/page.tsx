@@ -107,14 +107,32 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                             <p className="text-muted-foreground leading-relaxed text-lg">{product.description}</p>
 
                             {/* Price & CTA */}
-                            <div className="flex items-center gap-8">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
                                 <div>
                                     <span className="text-5xl font-bold tracking-tight">${product.price.toFixed(0)}</span>
                                     <span className="text-white/30 text-sm ml-2">USD</span>
                                 </div>
-                                <Button variant="premium" size="lg" className="px-12">
-                                    Purchase <ExternalLink className="ml-2 w-4 h-4" />
-                                </Button>
+                                {product.checkoutUrl ? (
+                                    <a
+                                        href={product.checkoutUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <Button variant="premium" size="lg" className="px-12 w-full sm:w-auto">
+                                            Purchase <ExternalLink className="ml-2 w-4 h-4" />
+                                        </Button>
+                                    </a>
+                                ) : (
+                                    <Button variant="premium" size="lg" className="px-12 opacity-50 cursor-not-allowed" disabled>
+                                        Coming Soon
+                                    </Button>
+                                )}
+                            </div>
+
+                            {/* Accepted Payments */}
+                            <div className="flex items-center gap-3 text-[10px] text-white/30 font-bold tracking-[0.2em] uppercase">
+                                <Shield className="w-3.5 h-3.5 text-accent/50" />
+                                Secure Checkout via Square — Apple Pay • Google Pay • All Major Cards
                             </div>
 
                             {/* Specs Grid */}
@@ -200,6 +218,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                                         purity={p.purity}
                                         quantity={p.quantity}
                                         image={p.image}
+                                        checkoutUrl={p.checkoutUrl}
                                     />
                                 );
                             })}

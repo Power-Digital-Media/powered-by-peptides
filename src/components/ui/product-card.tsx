@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { cn } from "./button";
 
 interface ProductCardProps {
@@ -17,6 +17,7 @@ interface ProductCardProps {
     purity?: string;
     quantity?: string;
     image?: string;
+    checkoutUrl?: string;
     featured?: boolean;
 }
 
@@ -31,6 +32,7 @@ export function ProductCard({
     purity,
     quantity,
     image,
+    checkoutUrl,
     featured = false,
 }: ProductCardProps) {
     return (
@@ -120,21 +122,34 @@ export function ProductCard({
                     </div>
 
                     {/* Bottom Row */}
-                    <div className="flex items-end justify-between mt-6 pt-5 border-t border-white/5">
-                        <div>
-                            {quantity && (
-                                <span className="text-[10px] text-white/30 font-bold tracking-widest uppercase block mb-1">
-                                    {quantity}
+                        <div className="flex items-end justify-between mt-6 pt-5 border-t border-white/5">
+                            <div>
+                                {quantity && (
+                                    <span className="text-[10px] text-white/30 font-bold tracking-widest uppercase block mb-1">
+                                        {quantity}
+                                    </span>
+                                )}
+                                <span className="text-2xl font-bold tracking-tight">
+                                    ${price.toFixed(0)}
                                 </span>
+                            </div>
+                            {checkoutUrl ? (
+                                <span
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        window.open(checkoutUrl, '_blank', 'noopener,noreferrer');
+                                    }}
+                                    className="inline-flex items-center gap-1.5 text-[10px] font-bold tracking-[0.15em] uppercase bg-accent/15 hover:bg-accent/25 text-accent px-4 py-2 rounded-full transition-colors cursor-pointer"
+                                >
+                                    Buy Now <ExternalLink className="w-3 h-3" />
+                                </span>
+                            ) : (
+                                <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                                    <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-0.5 transition-transform" />
+                                </div>
                             )}
-                            <span className="text-2xl font-bold tracking-tight">
-                                ${price.toFixed(0)}
-                            </span>
                         </div>
-                        <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                            <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-0.5 transition-transform" />
-                        </div>
-                    </div>
                 </div>
             </motion.div>
         </Link>

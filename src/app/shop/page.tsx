@@ -76,6 +76,7 @@ function ShopContent() {
                                 purity={product.purity}
                                 quantity={product.quantity}
                                 image={product.image}
+                                checkoutUrl={product.checkoutUrl}
                                 featured={product.featured}
                             />
                         </motion.div>

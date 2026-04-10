@@ -91,6 +91,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: true,
     image: '/images/products/tirz-10.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/tirz-10',
   },
   {
     id: 'tirz-30',
@@ -119,6 +120,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: true,
     image: '/images/products/tirz-30.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/tirz-30',
   },
   {
     id: 'tirz-60',
@@ -147,6 +149,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: false,
     image: '/images/products/tirz-60.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/tirz-60',
   },
 
   // ═══════════════════════════════
@@ -179,6 +182,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: true,
     image: '/images/products/ghk-cu.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/ghk-cu',
   },
   {
     id: 'glow-blend',
@@ -207,6 +211,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: false,
     image: '/images/products/glow-blend.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/glow-blend',
   },
   {
     id: 'kpv',
@@ -235,6 +240,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: false,
     image: '/images/products/kpv.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/kpv',
   },
   {
     id: 'epitalon',
@@ -263,6 +269,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: false,
     image: '/images/products/epitalon.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/epitalon',
   },
   {
     id: 'snap-8',
@@ -291,6 +298,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: false,
     image: '/images/products/snap-8.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/snap-8',
   },
   {
     id: 'melanotan-2',
@@ -319,6 +327,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: false,
     image: '/images/products/melanotan-2.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/melanotan-2',
   },
 
   // ═══════════════════════════════
@@ -351,6 +360,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: true,
     image: '/images/products/ss-31.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/ss-31',
   },
   {
     id: 'nad-plus',
@@ -379,6 +389,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: true,
     image: '/images/products/nad-plus.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/nad-plus',
   },
   {
     id: 'mots-c',
@@ -407,6 +418,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: false,
     image: '/images/products/mots-c.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/mots-c',
   },
   {
     id: 'illumineuro',
@@ -435,6 +447,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: false,
     image: '/images/products/illumineuro.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/illumineuro',
   },
 
   // ═══════════════════════════════
@@ -467,6 +480,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: true,
     image: '/images/products/bpc-157.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/bpc-157',
   },
   {
     id: 'cjc-1295-ipamorelin',
@@ -495,6 +509,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: false,
     image: '/images/products/cjc-1295-ipamorelin.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/cjc-1295-ipamorelin',
   },
 
   // ═══════════════════════════════
@@ -527,6 +542,7 @@ export const PRODUCTS = [
     inStock: true,
     featured: false,
     image: '/images/products/pt-141.webp',
+    checkoutUrl: 'https://syringe-society-109807.square.site/product/pt-141',
   },
 ];
 
