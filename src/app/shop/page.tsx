@@ -97,7 +97,7 @@ export default function ShopPage() {
     return (
         <div>
             {/* Cinematic Hero with All Compounds Image */}
-            <section className="relative min-h-[50vh] md:min-h-[60vh] flex items-end pb-16 md:pb-20 overflow-hidden">
+            <section className="relative h-[40vh] md:h-[45vh] flex items-end pb-12 md:pb-16 overflow-hidden">
                 {/* Background Image */}
                 <Image
                     src="/images/products/all-compounds-hero.webp"
@@ -105,7 +105,7 @@ export default function ShopPage() {
                     fill
                     priority
                     sizes="100vw"
-                    className="object-cover object-center"
+                    className="object-cover object-[center_40%]"
                 />
 
                 {/* Dark overlays for text readability */}
