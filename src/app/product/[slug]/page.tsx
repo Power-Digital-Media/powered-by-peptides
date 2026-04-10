@@ -3,6 +3,7 @@ import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/ui/product-card";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ExternalLink, Shield, Thermometer, FlaskConical, FileText } from "lucide-react";
 import { getProductBySlug, getAllProductSlugs, PRODUCTS, CATEGORIES, getCategoryColor } from "@/data/products";
 import { notFound } from "next/navigation";
@@ -56,13 +57,32 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                     <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
                         {/* Product Visual */}
                         <div className="lg:w-1/2">
-                            <div className="glass-card rounded-[2.5rem] aspect-square flex items-center justify-center p-12 glow-blue relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent" />
-                                <div className="relative text-center space-y-4">
-                                    <FlaskConical className="w-24 h-24 text-accent/30 mx-auto" />
-                                    <div className="text-6xl font-bold tracking-tighter text-accent">{product.name}</div>
-                                    <div className="text-sm text-white/30 font-bold tracking-[0.3em] uppercase">{product.quantity} • {product.form}</div>
-                                </div>
+                            <div className="glass-card rounded-[2.5rem] aspect-square flex items-center justify-center glow-blue relative overflow-hidden">
+                                {product.image ? (
+                                    <>
+                                        <Image
+                                            src={product.image}
+                                            alt={product.fullName}
+                                            fill
+                                            sizes="(max-width: 1024px) 100vw, 50vw"
+                                            className="object-cover"
+                                            priority
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                                        <div className="absolute bottom-6 left-6 right-6 z-10">
+                                            <div className="text-sm text-white/50 font-bold tracking-[0.3em] uppercase">{product.quantity} • {product.form}</div>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent" />
+                                        <div className="relative text-center space-y-4 p-12">
+                                            <FlaskConical className="w-24 h-24 text-accent/30 mx-auto" />
+                                            <div className="text-6xl font-bold tracking-tighter text-accent">{product.name}</div>
+                                            <div className="text-sm text-white/30 font-bold tracking-[0.3em] uppercase">{product.quantity} • {product.form}</div>
+                                        </div>
+                                    </>
+                                )}
                             </div>
                         </div>
 
@@ -179,6 +199,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                                         shortDescription={p.shortDescription}
                                         purity={p.purity}
                                         quantity={p.quantity}
+                                        image={p.image}
                                     />
                                 );
                             })}
