@@ -90,7 +90,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: true,
-    image: '/images/vial-tirz.webp',
+    image: '/images/products/tirz-10.webp',
   },
   {
     id: 'tirz-30',
@@ -118,7 +118,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: true,
-    image: '/images/vial-tirz.webp',
+    image: '/images/products/tirz-30.webp',
   },
   {
     id: 'tirz-60',
@@ -146,7 +146,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: false,
-    image: '/images/vial-tirz.webp',
+    image: '/images/products/tirz-60.webp',
   },
 
   // ═══════════════════════════════
@@ -178,7 +178,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: true,
-    image: '/images/vial-ghkcu.webp',
+    image: '/images/products/ghk-cu.webp',
   },
   {
     id: 'glow-blend',
@@ -206,7 +206,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: false,
-    image: '/images/vial-beauty.webp',
+    image: '/images/products/glow-blend.webp',
   },
   {
     id: 'kpv',
@@ -234,7 +234,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: false,
-    image: '/images/vial-ghkcu.webp',
+    image: '/images/products/kpv.webp',
   },
   {
     id: 'epitalon',
@@ -262,7 +262,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: false,
-    image: '/images/vial-ghkcu.webp',
+    image: '/images/products/epitalon.webp',
   },
   {
     id: 'snap-8',
@@ -290,7 +290,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: false,
-    image: '/images/vial-beauty.webp',
+    image: '/images/products/snap-8.webp',
   },
   {
     id: 'melanotan-2',
@@ -318,7 +318,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: false,
-    image: '/images/vial-ghkcu.webp',
+    image: '/images/products/melanotan-2.webp',
   },
 
   // ═══════════════════════════════
@@ -350,7 +350,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: true,
-    image: '/images/vial-nad.webp',
+    image: '/images/products/ss-31.webp',
   },
   {
     id: 'nad-plus',
@@ -378,7 +378,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: true,
-    image: '/images/vial-nad.webp',
+    image: '/images/products/nad-plus.webp',
   },
   {
     id: 'mots-c',
@@ -406,7 +406,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: false,
-    image: '/images/vial-nad.webp',
+    image: '/images/products/mots-c.webp',
   },
   {
     id: 'illumineuro',
@@ -434,7 +434,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: false,
-    image: '/images/vial-nad.webp',
+    image: '/images/products/illumineuro.webp',
   },
 
   // ═══════════════════════════════
@@ -466,7 +466,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: true,
-    image: '/images/vial-ghkcu.webp',
+    image: '/images/products/bpc-157.webp',
   },
   {
     id: 'cjc-1295-ipamorelin',
@@ -494,7 +494,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: false,
-    image: '/images/vial-ghkcu.webp',
+    image: '/images/products/cjc-1295-ipamorelin.webp',
   },
 
   // ═══════════════════════════════
@@ -526,7 +526,7 @@ export const PRODUCTS = [
     ],
     inStock: true,
     featured: false,
-    image: '/images/vial-ghkcu.webp',
+    image: '/images/products/pt-141.webp',
   },
 ];
 

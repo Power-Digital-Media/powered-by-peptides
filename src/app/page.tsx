@@ -242,6 +242,7 @@ export default function Home() {
                     shortDescription={product.shortDescription}
                     purity={product.purity}
                     quantity={product.quantity}
+                    image={product.image}
                     featured={product.featured}
                   />
                 </motion.div>

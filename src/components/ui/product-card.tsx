@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { cn } from "./button";
@@ -38,58 +39,101 @@ export function ProductCard({
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className={cn(
-                    "glass-card rounded-[2rem] p-8 flex flex-col justify-between h-full group cursor-pointer border-white/5 shadow-lg relative overflow-hidden",
+                    "glass-card rounded-[2rem] flex flex-col h-full group cursor-pointer border-white/5 shadow-lg relative overflow-hidden",
                     featured && "glow-blue"
                 )}
             >
-                {/* Category Badge */}
-                <div className="flex justify-between items-start mb-6">
-                    <span
-                        className="text-[9px] font-bold tracking-[0.25em] uppercase px-3 py-1 rounded-full border"
-                        style={{
-                            color: categoryColor,
-                            borderColor: `${categoryColor}30`,
-                            backgroundColor: `${categoryColor}10`,
-                        }}
-                    >
-                        {category}
-                    </span>
-                    {purity && (
-                        <span className="text-[10px] text-accent font-bold tracking-wider">
-                            {purity}
-                        </span>
-                    )}
-                </div>
+                {/* Product Image */}
+                {image && (
+                    <div className="relative w-full aspect-[4/3] overflow-hidden">
+                        <Image
+                            src={image}
+                            alt={fullName || name}
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        {/* Dark gradient fade into card body */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-[#0a0a0f]/40 to-transparent" />
 
-                {/* Product Info */}
-                <div className="flex-1 space-y-3">
-                    <h3 className="text-2xl font-bold tracking-tight group-hover:text-accent transition-colors">
-                        {name}
-                    </h3>
-                    {fullName && name !== fullName && (
-                        <p className="text-xs text-white/40 font-medium">{fullName}</p>
-                    )}
-                    {shortDescription && (
-                        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 opacity-70">
-                            {shortDescription}
-                        </p>
-                    )}
-                </div>
-
-                {/* Bottom Row */}
-                <div className="flex items-end justify-between mt-8 pt-6 border-t border-white/5">
-                    <div>
-                        {quantity && (
-                            <span className="text-[10px] text-white/30 font-bold tracking-widest uppercase block mb-1">
-                                {quantity}
+                        {/* Category Badge — floating on image */}
+                        <div className="absolute top-4 left-4 z-10">
+                            <span
+                                className="text-[9px] font-bold tracking-[0.25em] uppercase px-3 py-1.5 rounded-full border backdrop-blur-md"
+                                style={{
+                                    color: categoryColor,
+                                    borderColor: `${categoryColor}40`,
+                                    backgroundColor: `${categoryColor}15`,
+                                }}
+                            >
+                                {category}
                             </span>
+                        </div>
+
+                        {/* Purity badge — top right */}
+                        {purity && (
+                            <div className="absolute top-4 right-4 z-10">
+                                <span className="text-[10px] text-accent font-bold tracking-wider bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full">
+                                    {purity}
+                                </span>
+                            </div>
                         )}
-                        <span className="text-3xl font-bold tracking-tight">
-                            ${price.toFixed(0)}
-                        </span>
                     </div>
-                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                        <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-0.5 transition-transform" />
+                )}
+
+                {/* Card Body */}
+                <div className="p-7 pt-4 flex flex-col flex-1">
+                    {/* If no image, show badges inline */}
+                    {!image && (
+                        <div className="flex justify-between items-start mb-6">
+                            <span
+                                className="text-[9px] font-bold tracking-[0.25em] uppercase px-3 py-1 rounded-full border"
+                                style={{
+                                    color: categoryColor,
+                                    borderColor: `${categoryColor}30`,
+                                    backgroundColor: `${categoryColor}10`,
+                                }}
+                            >
+                                {category}
+                            </span>
+                            {purity && (
+                                <span className="text-[10px] text-accent font-bold tracking-wider">
+                                    {purity}
+                                </span>
+                            )}
+                        </div>
+                    )}
+
+                    {/* Product Info */}
+                    <div className="flex-1 space-y-2">
+                        <h3 className="text-xl font-bold tracking-tight group-hover:text-accent transition-colors">
+                            {name}
+                        </h3>
+                        {fullName && name !== fullName && (
+                            <p className="text-[11px] text-white/35 font-medium">{fullName}</p>
+                        )}
+                        {shortDescription && (
+                            <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 opacity-60">
+                                {shortDescription}
+                            </p>
+                        )}
+                    </div>
+
+                    {/* Bottom Row */}
+                    <div className="flex items-end justify-between mt-6 pt-5 border-t border-white/5">
+                        <div>
+                            {quantity && (
+                                <span className="text-[10px] text-white/30 font-bold tracking-widest uppercase block mb-1">
+                                    {quantity}
+                                </span>
+                            )}
+                            <span className="text-2xl font-bold tracking-tight">
+                                ${price.toFixed(0)}
+                            </span>
+                        </div>
+                        <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                            <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-0.5 transition-transform" />
+                        </div>
                     </div>
                 </div>
             </motion.div>
