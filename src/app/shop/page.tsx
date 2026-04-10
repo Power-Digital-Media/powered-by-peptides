@@ -3,13 +3,13 @@
 import { useState } from "react";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
-import { PageHeader } from "@/components/ui/page-header";
 import { ProductCard } from "@/components/ui/product-card";
 import { motion } from "framer-motion";
 import { cn } from "@/components/ui/button";
 import { PRODUCTS, CATEGORIES, getCategoryColor } from "@/data/products";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import Image from "next/image";
 
 function ShopContent() {
     const searchParams = useSearchParams();
@@ -96,11 +96,44 @@ function ShopContent() {
 export default function ShopPage() {
     return (
         <div>
-            <PageHeader
-                tag="Research Catalog"
-                heading={<>All <span className="text-accent italic font-serif">Compounds</span></>}
-                subheading="Browse our full catalog of research peptides, blends, and bioactive compounds. Every product is third-party tested for purity."
-            />
+            {/* Cinematic Hero with All Compounds Image */}
+            <section className="relative min-h-[50vh] md:min-h-[60vh] flex items-end pb-16 md:pb-20 overflow-hidden">
+                {/* Background Image */}
+                <Image
+                    src="/images/products/all-compounds-hero.webp"
+                    alt="Powered by Peptides — Full Research Catalog"
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover object-center"
+                />
+
+                {/* Dark overlays for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 z-[1]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent z-[1]" />
+
+                {/* Content */}
+                <Container className="relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: [0.21, 0.45, 0.32, 0.9] }}
+                        className="max-w-2xl space-y-5"
+                    >
+                        <span className="inline-block px-4 py-1.5 rounded-full border border-accent/20 bg-accent/5 text-[10px] font-bold tracking-[0.3em] uppercase text-accent shadow-sm backdrop-blur-sm">
+                            Research Catalog
+                        </span>
+
+                        <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-[0.9] text-white">
+                            All <span className="text-accent italic font-serif">Compounds</span>
+                        </h1>
+
+                        <p className="text-lg md:text-xl text-white/60 font-light leading-relaxed max-w-lg">
+                            Browse our full catalog of research peptides, blends, and bioactive compounds. Every product is third-party tested for purity.
+                        </p>
+                    </motion.div>
+                </Container>
+            </section>
 
             <Section>
                 <Container>
