@@ -3,10 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { cn } from "./button";
+import { AddToCartButton } from "./add-to-cart-button";
 
 interface ProductCardProps {
+    id: string;
     slug: string;
     name: string;
     fullName?: string;
@@ -17,11 +19,11 @@ interface ProductCardProps {
     purity?: string;
     quantity?: string;
     image?: string;
-    checkoutUrl?: string;
     featured?: boolean;
 }
 
 export function ProductCard({
+    id,
     slug,
     name,
     fullName,
@@ -32,7 +34,6 @@ export function ProductCard({
     purity,
     quantity,
     image,
-    checkoutUrl,
     featured = false,
 }: ProductCardProps) {
     return (
@@ -133,22 +134,17 @@ export function ProductCard({
                                     ${price.toFixed(0)}
                                 </span>
                             </div>
-                            {checkoutUrl ? (
-                                <span
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        e.stopPropagation();
-                                        window.open(checkoutUrl, '_blank', 'noopener,noreferrer');
-                                    }}
-                                    className="inline-flex items-center gap-1.5 text-[10px] font-bold tracking-[0.15em] uppercase bg-accent/15 hover:bg-accent/25 text-accent px-4 py-2 rounded-full transition-colors cursor-pointer"
-                                >
-                                    Buy Now <ExternalLink className="w-3 h-3" />
-                                </span>
-                            ) : (
-                                <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                                    <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-0.5 transition-transform" />
-                                </div>
-                            )}
+                            <AddToCartButton
+                                productId={id}
+                                slug={slug}
+                                name={name}
+                                fullName={fullName || name}
+                                price={price}
+                                image={image}
+                                purity={purity}
+                                productQuantity={quantity}
+                                variant="compact"
+                            />
                         </div>
                 </div>
             </motion.div>

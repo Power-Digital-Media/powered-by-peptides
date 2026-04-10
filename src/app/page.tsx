@@ -233,6 +233,7 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
                 >
                   <ProductCard
+                    id={product.id}
                     slug={product.slug}
                     name={product.name}
                     fullName={product.fullName}
@@ -243,7 +244,6 @@ export default function Home() {
                     purity={product.purity}
                     quantity={product.quantity}
                     image={product.image}
-                    checkoutUrl={product.checkoutUrl}
                     featured={product.featured}
                   />
                 </motion.div>

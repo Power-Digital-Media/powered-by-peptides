@@ -66,6 +66,7 @@ function ShopContent() {
                             transition={{ duration: 0.4, delay: i * 0.05 }}
                         >
                             <ProductCard
+                                id={product.id}
                                 slug={product.slug}
                                 name={product.name}
                                 fullName={product.fullName}
@@ -76,7 +77,6 @@ function ShopContent() {
                                 purity={product.purity}
                                 quantity={product.quantity}
                                 image={product.image}
-                                checkoutUrl={product.checkoutUrl}
                                 featured={product.featured}
                             />
                         </motion.div>

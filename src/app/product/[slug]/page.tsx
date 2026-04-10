@@ -2,9 +2,10 @@ import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/ui/product-card";
+import { ProductCTA } from "@/components/ui/product-cta";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ExternalLink, Shield, Thermometer, FlaskConical, FileText, BookOpen, Microscope, Atom, Beaker, GraduationCap, ChevronRight } from "lucide-react";
+import { ArrowLeft, Shield, Thermometer, FlaskConical, FileText, BookOpen, Microscope, Atom, Beaker, GraduationCap, ChevronRight, ExternalLink } from "lucide-react";
 import { getProductBySlug, getAllProductSlugs, PRODUCTS, CATEGORIES, getCategoryColor, SITE_CONFIG } from "@/data/products";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -178,33 +179,16 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                             <p className="text-muted-foreground leading-relaxed text-lg">{product.description}</p>
 
                             {/* Price & CTA */}
-                            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-                                <div>
-                                    <span className="text-5xl font-bold tracking-tight">${product.price.toFixed(0)}</span>
-                                    <span className="text-white/30 text-sm ml-2">USD</span>
-                                </div>
-                                {product.checkoutUrl ? (
-                                    <a
-                                        href={product.checkoutUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <Button variant="premium" size="lg" className="px-12 w-full sm:w-auto">
-                                            Purchase <ExternalLink className="ml-2 w-4 h-4" />
-                                        </Button>
-                                    </a>
-                                ) : (
-                                    <Button variant="premium" size="lg" className="px-12 opacity-50 cursor-not-allowed" disabled>
-                                        Coming Soon
-                                    </Button>
-                                )}
-                            </div>
-
-                            {/* Accepted Payments */}
-                            <div className="flex items-center gap-3 text-[10px] text-white/30 font-bold tracking-[0.2em] uppercase">
-                                <Shield className="w-3.5 h-3.5 text-accent/50" />
-                                Secure Checkout via Square — Apple Pay • Google Pay • All Major Cards
-                            </div>
+                            <ProductCTA
+                                productId={product.id}
+                                slug={product.slug}
+                                name={product.name}
+                                fullName={product.fullName}
+                                price={product.price}
+                                image={product.image}
+                                purity={product.purity}
+                                productQuantity={product.quantity}
+                            />
 
                             {/* Specs Grid */}
                             <div className="grid grid-cols-2 gap-4 pt-4">
@@ -444,6 +428,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                                 return (
                                     <ProductCard
                                         key={p.id}
+                                        id={p.id}
                                         slug={p.slug}
                                         name={p.name}
                                         fullName={p.fullName}
@@ -454,7 +439,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                                         purity={p.purity}
                                         quantity={p.quantity}
                                         image={p.image}
-                                        checkoutUrl={p.checkoutUrl}
                                     />
                                 );
                             })}

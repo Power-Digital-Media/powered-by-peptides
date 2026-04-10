@@ -8,6 +8,7 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { CartButton } from "./cart-button";
 
 const NAV_LINKS = [
     { href: "/shop", label: "Shop" },
@@ -70,6 +71,7 @@ export function Navbar() {
                             )} />
                         </Link>
                     ))}
+                    <CartButton />
                     <Link href="/shop">
                         <Button size="sm" variant="premium" className="px-6 font-bold shadow-none rounded-full h-10">
                             Shop Now
@@ -78,12 +80,15 @@ export function Navbar() {
                 </nav>
 
                 {/* Mobile Toggle */}
-                <button
-                    className="md:hidden p-2 text-white/80 hover:text-white transition-colors"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                </button>
+                <div className="md:hidden flex items-center gap-2">
+                    <CartButton />
+                    <button
+                        className="p-2 text-white/80 hover:text-white transition-colors"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                    </button>
+                </div>
             </Container>
 
             {/* Mobile Menu Overlay */}
