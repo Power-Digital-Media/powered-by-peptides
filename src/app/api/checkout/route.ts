@@ -72,6 +72,10 @@ export async function POST(request: NextRequest) {
         "mode": "payment",
         "success_url": `${request.nextUrl.origin}/thank-you?session_id={CHECKOUT_SESSION_ID}`,
         "cancel_url": `${request.nextUrl.origin}/shop`,
+        // Collect customer details for shipping
+        "shipping_address_collection[allowed_countries][0]": "US",
+        "phone_number_collection[enabled]": "true",
+        "customer_creation": "always",
         ...Object.fromEntries(
           lineItems.flatMap((item, i) => [
             [`line_items[${i}][price_data][currency]`, item.price_data.currency],
