@@ -142,6 +142,21 @@ export default function ShopPage() {
                     </Suspense>
                 </Container>
             </Section>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "WebPage",
+                        "@id": "https://poweredbypeptides.com/shop/#webpage",
+                        "url": "https://poweredbypeptides.com/shop/",
+                        "speakable": {
+                            "@type": "SpeakableSpecification",
+                            "cssSelector": ["h1", "h2"]
+                        }
+                    })
+                }}
+            />
         </div>
     );
 }

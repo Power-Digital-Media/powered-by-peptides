@@ -55,9 +55,11 @@ export function Footer() {
                 </div>
 
                 <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-xs text-muted-foreground">
-                        © {new Date().getFullYear()} Powered by Peptides. All rights reserved.
-                    </p>
+                    <div className="flex flex-col sm:flex-row items-center gap-2 text-xs text-muted-foreground">
+                        <span>© {new Date().getFullYear()} Powered by Peptides. All rights reserved.</span>
+                        <span className="hidden sm:inline">•</span>
+                        <span>Designed &amp; Engineered by <a href="https://powerdigitalmedia.org" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Power Digital Media</a></span>
+                    </div>
                     <p className="text-[10px] text-white/25 max-w-lg text-center md:text-right leading-relaxed">
                         All products are intended solely for laboratory research, analytical testing, and educational purposes.
                         NOT FOR HUMAN CONSUMPTION. Not evaluated by the FDA.

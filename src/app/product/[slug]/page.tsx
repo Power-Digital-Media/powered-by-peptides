@@ -100,6 +100,21 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
             />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "WebPage",
+                        "@id": `${baseUrl}/product/${product.slug}/#webpage`,
+                        "url": `${baseUrl}/product/${product.slug}/`,
+                        "speakable": {
+                            "@type": "SpeakableSpecification",
+                            "cssSelector": ["h1", "h2"]
+                        }
+                    })
+                }}
+            />
 
             {/* Header */}
             <section className="relative pt-32 pb-16 overflow-hidden bg-black">

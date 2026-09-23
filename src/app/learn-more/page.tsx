@@ -160,6 +160,21 @@ export default function LearnMorePage() {
                     </Link>
                 </Container>
             </Section>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "WebPage",
+                        "@id": "https://poweredbypeptides.com/learn-more/#webpage",
+                        "url": "https://poweredbypeptides.com/learn-more/",
+                        "speakable": {
+                            "@type": "SpeakableSpecification",
+                            "cssSelector": ["h1", "h2"]
+                        }
+                    })
+                }}
+            />
         </div>
     );
 }
